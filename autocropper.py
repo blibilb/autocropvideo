@@ -47,7 +47,8 @@ class autocrop:
             for i in os.listdir():
                 if i.startswith('cropped') or i.startswith('thing'):
                     os.remove(i)
-        return output
+        self.outputfile = output
+        return None
 
     def get_frame_count(self):
         cap = cv2.VideoCapture(self.videofilename)

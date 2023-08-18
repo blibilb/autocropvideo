@@ -40,5 +40,5 @@ import sys
 if 'path/to/autocropvideo' not in sys.path:
     sys.path.append('path/to/autocropvideo')
 from autocropvideo.autocropper import autocrop
-outputname = autocrop(filename=filename, threshold=threshold, framestoanalyze=framestoanalyze, deletetemp=deletetemp)
+outputname = autocrop(filename=filename, threshold=threshold, framestoanalyze=framestoanalyze, deletetemp=deletetemp).outputfile
 ```
