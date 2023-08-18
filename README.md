@@ -20,7 +20,7 @@ pip install -r requirements.txt
 # Usage
 
 ```
-usage: autocropper.py [-h] [-file FILE] [-threshold THRESHOLD] [-amountframes AMOUNTFRAMES] [-deletetemp]
+usage: autocropper.py [-h] [-file FILE] [-threshold THRESHOLD] [-amountframes AMOUNTFRAMES] [-deletetemp] [-handlecrop]
 
 autocrop a video with changeable threshold and amount of frames to analyze
 
@@ -30,8 +30,9 @@ options:
   -threshold THRESHOLD, -t THRESHOLD
                         threshold, between 1-20 is recommended, default 10
   -amountframes AMOUNTFRAMES, -f AMOUNTFRAMES
-                        amount frames to analyze (frames picked at random, default amount of frames is 5)
+                        amount frames to analyze (picked at random, default 5)
   -deletetemp, -d       whether to delete temporary files used
+  -handlecrop, -hc      if you want to handle crop instead of using ffmpeg, use this, this will print out width and height
 ```
 
 # Python usage

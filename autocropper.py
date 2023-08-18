@@ -5,7 +5,9 @@ from PIL import Image
 import subprocess
 import argparse
 class autocrop:
-    def __init__(self, filename: str, threshold: int = None, framestoanalyze: int = None, deletetemp: bool = True) -> None:
+    def __init__(self, filename: str, threshold: int = None, 
+                 framestoanalyze: int = None, deletetemp: bool = True,
+                 handlecrop: bool = False) -> None:
         self.threshold = threshold if threshold else 10
         self.framestoanalyze = framestoanalyze if framestoanalyze else 5
         self.videofilename = filename
@@ -41,7 +43,12 @@ class autocrop:
         if not actualwidth:
             actualwidth = widths[0]
             actualheight = heights[0]
-        output = self.cropvideo(width=actualwidth, height=actualheight)
+        if not handlecrop:
+            output = self.cropvideo(width=actualwidth, height=actualheight)
+        else:
+            self.width = actualwidth
+            self.height = actualheight
+            print(self.width, self.height)
         if deletetemp:
             import os
             for i in os.listdir():
@@ -106,5 +113,6 @@ if __name__ == '__main__':
     parser.add_argument('-threshold', '-t', type=int, help='threshold, between 1-20 is recommended, default 10')
     parser.add_argument('-amountframes', '-f', type=int, help='amount frames to analyze (picked at random, default 5)')
     parser.add_argument('-deletetemp', '-d', action='store_true', help='whether to delete temporary files used')
+    parser.add_argument('-handlecrop', '-hc', action="store_true", help='if you want to handle crop instead of using ffmpeg, use this, this will print out width and height')
     args = parser.parse_args()
     autocrop(filename=args.file, threshold=args.threshold, framestoanalyze=args.amountframes, deletetemp=args.deletetemp)
