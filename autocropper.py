@@ -46,10 +46,10 @@ class autocrop:
         if not handlecrop:
             output = self.cropvideo(width=actualwidth, height=actualheight)
             self.outputfile = output
-        else:
-            self.width = actualwidth
-            self.height = actualheight
-            print(self.width, self.height)
+
+        self.width = actualwidth
+        self.height = actualheight
+        print(self.width, self.height)
         if deletetemp:
             import os
             for i in os.listdir():

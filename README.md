@@ -41,5 +41,10 @@ import sys
 if 'path/to/autocropvideo' not in sys.path:
     sys.path.append('path/to/autocropvideo')
 from autocropvideo.autocropper import autocrop
-outputname = autocrop(filename=filename, threshold=threshold, framestoanalyze=framestoanalyze, deletetemp=deletetemp).outputfile
+var = autocrop(filename=filename, threshold=threshold, framestoanalyze=framestoanalyze, deletetemp=deletetemp, handlecrop=handlecrop)
+#if ffmpeg
+outputname = var.outputfile
+#if handling crop
+width = var.width
+height = var.height
 ```
