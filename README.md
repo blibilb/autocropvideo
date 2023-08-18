@@ -14,7 +14,9 @@ cd autocropvideo
 ```bash
 pip install -r requirements.txt
 ```
+## 4. download [ffmpeg](https://ffmpeg.org/download.html)
 
+### since ffmpeg reencodes when cropping, be aware of the ram usage (almost 1gb) depending on how large a video is, shouldnt be a problem with small insta/tiktok videos
 # Usage
 
 ```
