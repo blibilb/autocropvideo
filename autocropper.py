@@ -45,6 +45,7 @@ class autocrop:
             actualheight = heights[0]
         if not handlecrop:
             output = self.cropvideo(width=actualwidth, height=actualheight)
+            self.outputfile = output
         else:
             self.width = actualwidth
             self.height = actualheight
@@ -54,7 +55,7 @@ class autocrop:
             for i in os.listdir():
                 if i.startswith('cropped') or i.startswith('thing'):
                     os.remove(i)
-        self.outputfile = output
+
         return None
 
     def get_frame_count(self):
