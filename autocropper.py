@@ -97,7 +97,7 @@ class autocrop:
 
     def cropvideo(self, width, height):
         print(width, height)
-        subprocess.run(f'ffmpeg -i {self.videofilename} -vf crop={width}:{height} -y output.mp4')
+        subprocess.run(f'ffmpeg -i {self.videofilename} -vf crop={width}:{height} -y output.mp4'.split())
         return 'output.mp4'
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='autocrop a video with changeable threshold and amount of frames to analyze')
