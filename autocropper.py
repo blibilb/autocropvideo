@@ -38,8 +38,8 @@ class autocrop:
                 previouswidth = width
                 previousheight = height
             if width != previouswidth or height != previousheight:
-                actualwidth = np.mean(widths)
-                actualheight = np.mean(heights)
+                actualwidth = int(np.bincount(widths).argmax())
+                actualheight = int(np.bincount(heights).argmax())
         if not actualwidth:
             actualwidth = widths[0]
             actualheight = heights[0]
